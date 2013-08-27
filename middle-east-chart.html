@@ -8,27 +8,29 @@
     <script type="text/javascript" src='middle-east-chart.js'></script>
   </head>
   <body>
+    <div class='chart'>
+      <script type="text/javascript">
+        var w = 600;
+        var h = 300;
+        var padding = 5;
+        var dataset = [
+                      'Al Qaeda',
+                      'Assad',
+                      'Hamas',
+                      'Iran',
+                      'Israel',
+                      'Lebanon (Shias)',
+                      'Lebanon (Sunnis)',
+                      'Muslim Brotherhood',
+                      'Qatar', 
+                      'Russia',
+                      'Saudi & Gulf',
+                      'Sisi',
+                      'Syria (Rebels)',
+                      'Turkey',
+                      'USA',
+                      ];
 
-  <script type="text/javascript">
-  var w = 800;
-  var h = 300;
-  var dataset = [
-                'Al Qaeda',
-                'Assad',
-                'Hamas',
-                'Iran',
-                'Israel',
-                'Lebanon (Shias)',
-                'Lebanon (Sunnis)',
-                'Muslim Brotherhood',
-                'Qatar', 
-                'Russia',
-                'Saudi & Gulf',
-                'Sisi',
-                'Syria (Rebels)',
-                'Turkey',
-                'USA',
-                ];
 
   var svg = d3.select('body')
   .append('svg')
@@ -64,4 +66,5 @@
   <script type="text/javascript" src='middle-east-chart.js'></script>
 
 </body>
+    </div>
 </html>
