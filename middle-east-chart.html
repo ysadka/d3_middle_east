@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript" src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" type="text/css" href="middle-east-chart.css">
+</head>
+<body>
+
+  <script type="text/javascript">
+  var w = 700;
+  var h = 300;
+  var dataset = [
+                'Al Qaeda',
+                'Assad',
+                'Hamas',
+                'Iran',
+                'Israel',
+                'Lebanon (Shias)',
+                'Lebanon (Sunnis)',
+                'Muslim Brotherhood',
+                'Qatar', 
+                'Russia',
+                'Saudi & Gulf',
+                'Sisi',
+                'Syria (Rebels)',
+                'Turkey',
+                'USA',
+                ];
+
+  var svg = d3.select('body')
+  .append('svg')
+  .attr('width', w)
+  .attr('height', h);
+
+  var circles = svg.selectAll('circle')
+  .data(dataset)
+  .enter()
+  .append('circle');
+
+  circles.attr('cx', function(d, i){
+    return (i * 20) + 25;
+  })
+  circles.attr('cy', h/3)
+  circles.attr('r', 5);
+
+  svg.selectAll('text')
+  .data(dataset)
+  .enter()
+  .append('text')
+  .text(function(d){
+    return d
+  })
+  .attr('x', 5)
+  .attr('y', function(d, i){
+    return (i * 20) + 25;
+  })
+  .attr('font-size', '10px')
+  .attr('transform', 'rotate(270,100,100)');
+
+  </script>
+
+</body>
+</html>
