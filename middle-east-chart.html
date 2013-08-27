@@ -31,40 +31,46 @@
                       'USA',
                       ];
 
+        // SVG 
+        var svg = d3.select('.chart')
+        .append('svg')
+        .attr('width', w)
+        .attr('height', h);
 
-  var svg = d3.select('body')
-  .append('svg')
-  .attr('width', w)
-  .attr('height', h);
+        // Circles
+        var circles = svg.selectAll('circle')
+        .data(dataset)
+        .enter()
+        .append('circle');
 
-  var circles = svg.selectAll('circle')
-  .data(dataset)
-  .enter()
-  .append('circle');
+        // Circle attrs
+        circles.attr('cx', function(d, i){
+          return (i * 35) + 25;
+        })
+        circles.attr('cy', h - h/2 - padding)
+        circles.attr('r', 5);
+        
+        // Text
+        svg.selectAll('text')
+        .data(dataset)
+        .enter()
+        .append('text')
+        .text(function(d){
+          return d
+        })
+        .attr('x', 5)
+        .attr('y', function(d, i){
+          return (i * 35) + 25;
+        })
+        .attr('font-size', '15px')
+        .attr('transform', 'rotate(270,148,144)');
 
-  circles.attr('cx', function(d, i){
-    return (i * 20) + 25;
-  })
-  circles.attr('cy', h/3)
-  circles.attr('r', 5);
-
-  svg.selectAll('text')
-  .data(dataset)
-  .enter()
-  .append('text')
-  .text(function(d){
-    return d
-  })
-  .attr('x', 5)
-  .attr('y', function(d, i){
-    return (i * 20) + 25;
-  })
-  .attr('font-size', '12px')
-  .attr('transform', 'rotate(270,113,110)');
-
-  </script>
-  <script type="text/javascript" src='middle-east-chart.js'></script>
-
-</body>
+        // Annimation
+        d3.select('circle').on('click', function(element){
+          console.log(element);
+          // circles.transition().duration(500).delay(500).attr('cy', h/4);
+        });
+      </script>
     </div>
+  </body>
 </html>
